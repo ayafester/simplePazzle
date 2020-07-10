@@ -5,7 +5,8 @@
 }
 
 .q {
-  font: Roboto;
-  font-size: 15px;
-  margin-left: 150px;
+  font-family: 'Courier New';
+  color: #A66F00;
+  font-size: 20px;
+  margin-left: 10px;
 }
