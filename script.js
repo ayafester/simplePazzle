@@ -1,6 +1,27 @@
 let cvs = document.getElementById("canvas1"),//настройка канваса
     ctx = cvs.getContext("2d");
 
+function setGrid() { //прорисовка линий
+
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+
+    let line = 0 ;
+    for(let i = 0; i<5; i++) {
+      ctx.moveTo(line, 0);
+      ctx.lineTo(line, cvs.height);
+      ctx.stroke();
+      line += 250;
+    }
+
+    let line2 = 0 ;
+    for(let i = 0; i<5; i++) {
+      ctx.moveTo(0, line2);
+      ctx.lineTo(cvs.width, line2);
+      ctx.stroke();
+      line2 += 200;
+    }
+}
 let img1 = new Image();//главное изображение
 img1.src = "img/1.jpg";
 
@@ -32,6 +53,7 @@ part_img11.src = "img/image_part_011.jpg";
 function draw() { //начальное изображение картинки
   ctx.drawImage(img1, 0, 0);
 }
+
 img1.onload = draw; //при прогрузки картинки функция
 
 function generateArrayRandomNumber (min, max) { //генератор случайных чисел неповторяющихся
@@ -54,15 +76,16 @@ function generateArrayRandomNumber (min, max) { //генератор случа�
 }
 let arrNum = generateArrayRandomNumber(1, 11); //фиксирванные числа от 1 до 11
 
-document.addEventListener("click", putUp); //при клике картинки расстасовываются
+
+document.getElementById("start").onclick = putUp; //при клике картинки расстасовываются
 
 function putUp() {
 
+  ctx.clearRect(0, 0, cvs.width, cvs.height); //очистила от старой фотки
+  setGrid(); //загрузила сетку
+
   document.getElementById("h1").innerText = "Пора собирать пазл! Нажимайте на картинку для перемещения в свободное место";
-  ctx.beginPath(); //заливка фона новый квадрат
-  ctx.rect(0, 0, 1000, 600);
-  ctx.fillStyle = "#FFFAC8";
-  ctx.fill();
+
 
   ctx.drawImage(eval(`part_img${arrNum[0]}`), 0, 0);//рандомное расположение изображений
   ctx.drawImage(eval(`part_img${arrNum[1]}`), 250, 0);
@@ -76,7 +99,7 @@ function putUp() {
   ctx.drawImage(eval(`part_img${arrNum[9]}`), 250, 400);
   ctx.drawImage(eval(`part_img${arrNum[10]}`), 500, 400);
 
-  setPic(); //объявление переменных с картинками
+  setPic(); //объявление переменных с картинками*/
 }
 
 function setPic() { //массив картинок и их айди, ссортированы слева направо. для конечного результата
@@ -99,19 +122,10 @@ let emptyRect = { //начальное положение пустого ква�
   height: 200
 }
 
-$(cvs).on("click", function() { // функция, которая должна работать при клике, и работает
-  alert("1");
-});
-/*function clearRect(x, y, wid, hei) {
-  ctx.clearRect(x, y, wid, hei);
-}
-
-
-
 document.addEventListener("keydown", moveTo);
 
 function moveTo() {
-  clearRect(emptyRect.x - 250, emptyRect.y, emptyRect.width, emptyRect.height);
-  ctx.drawImage(eval(`part_img${arrNum[10]}`),emptyRect.x, emptyRect.y);
-  empty.x -= 250;
-}*/
+    ctx.clearRect(emptyRect.x - 250, emptyRect.y, emptyRect.width, emptyRect.height);
+    ctx.drawImage(eval(`part_img${arrNum[10]}`),emptyRect.x, emptyRect.y);
+    empty.x -= 250;
+}
