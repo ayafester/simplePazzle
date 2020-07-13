@@ -1,3 +1,5 @@
+/*
+*/
 let cvs = document.getElementById("canvas1"),//настройка канваса
     ctx = cvs.getContext("2d");
 
