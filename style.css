@@ -1,5 +1,4 @@
 #canvas1 {
-  display: block;
   border: 1px solid black;
   background: #FFFAC8;
   margin-left: 10px;
@@ -10,15 +9,4 @@
   color: #A66F00;
   font-size: 20px;
   margin-left: 10px;
-}
-.button {
-  background: -moz-linear-gradient(#00BBD6, #EBFFFF);
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#FF8740), to(#EBFFFF));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
-    padding: 3px 7px;
-    color: #333;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px solid #666;
 }

@@ -1,29 +1,9 @@
-/*
-*/
 let cvs = document.getElementById("canvas1"),//настройка канваса
-    ctx = cvs.getContext("2d");
+    ctx = cvs.getContext("2d"),
+    cvsLeft = cvs.offsetLeft, //начало координаты канваса относительно ДОМ
+    cvsTop = cvs.offsetTop,
+    elements = [];
 
-function setGrid() { //прорисовка линий
-
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = "black";
-
-    let line = 0 ;
-    for(let i = 0; i<5; i++) {
-      ctx.moveTo(line, 0);
-      ctx.lineTo(line, cvs.height);
-      ctx.stroke();
-      line += 250;
-    }
-
-    let line2 = 0 ;
-    for(let i = 0; i<5; i++) {
-      ctx.moveTo(0, line2);
-      ctx.lineTo(cvs.width, line2);
-      ctx.stroke();
-      line2 += 200;
-    }
-}
 let img1 = new Image();//главное изображение
 img1.src = "img/1.jpg";
 
@@ -58,36 +38,133 @@ function draw() { //начальное изображение картинки
 
 img1.onload = draw; //при прогрузки картинки функция
 
+    elements.push({
+        colour: '#FFFAC8',
+        width: 250,
+        height: 200,
+        top: 0,
+        left: 0,
+        id: 1
+    });
+
+    elements.push({
+        colour: '#FFFAC8',
+        width: 250,
+        height: 200,
+        top: 0,
+        left: 250,
+        id: 2
+    });
+    elements.push({
+        colour: '#FFFAC8',
+        width: 250,
+        height: 200,
+        top: 0,
+        left: 500,
+        id: 3
+    });
+    elements.push({
+        colour: '#FFFAC8',
+        width: 250,
+        height: 200,
+        top: 0,
+        left: 750,
+        id: 4
+    });
+    elements.push({
+        colour: '#FFFAC8',
+        width: 250,
+        height: 200,
+        top: 200,
+        left: 0,
+        id: 5
+    });
+    elements.push({
+        colour: '#FFFAC8',
+        width: 250,
+        height: 200,
+        top: 200,
+        left: 250,
+        id: 6
+    });
+    elements.push({
+        colour: '#FFFAC8',
+        width: 250,
+        height: 200,
+        top: 200,
+        left: 500,
+        id: 7
+    });
+    elements.push({
+        colour: '#FFFAC8',
+        width: 250,
+        height: 200,
+        top: 200,
+        left: 750,
+        id: 8
+    });
+    elements.push({
+        colour: '#FFFAC8',
+        width: 250,
+        height: 200,
+        top: 400,
+        left: 0,
+        id: 9
+    });
+    elements.push({
+        colour: '#FFFAC8',
+        width: 250,
+        height: 200,
+        top: 400,
+        left: 250,
+        id: 10
+    });
+    elements.push({
+        colour: '#FFFAC8',
+        width: 250,
+        height: 200,
+        top: 400,
+        left: 500,
+        id: 11
+    });
+    elements.push({
+        colour: '#FFFAC8',
+        width: 250,
+        height: 200,
+        top: 400,
+        left: 750,
+        id: 12
+    });
+
 function generateArrayRandomNumber (min, max) { //генератор случайных чисел неповторяющихся
-	let totalNumbers 		= max - min + 1,
-		arrayTotalNumbers 	= [],
-		arrayRandomNumbers 	= [],
-		tempRandomNumber;
+  let totalNumbers 		= max - min + 1,
+  arrayTotalNumbers 	= [],
+  arrayRandomNumbers 	= [],
+  tempRandomNumber;
 
-	while (totalNumbers--) {
-		arrayTotalNumbers.push(totalNumbers + min);
-	}
+  while (totalNumbers--) {
+    arrayTotalNumbers.push(totalNumbers + min);
+  }
+  while (arrayTotalNumbers.length) {
+    tempRandomNumber = Math.round(Math.random() * (arrayTotalNumbers.length - 1));
+    arrayRandomNumbers.push(arrayTotalNumbers[tempRandomNumber]);
+    arrayTotalNumbers.splice(tempRandomNumber, 1);
+  }
 
-	while (arrayTotalNumbers.length) {
-		tempRandomNumber = Math.round(Math.random() * (arrayTotalNumbers.length - 1));
-		arrayRandomNumbers.push(arrayTotalNumbers[tempRandomNumber]);
-		arrayTotalNumbers.splice(tempRandomNumber, 1);
-	}
-
-	return arrayRandomNumbers;
+  return arrayRandomNumbers;
 }
+
 let arrNum = generateArrayRandomNumber(1, 11); //фиксирванные числа от 1 до 11
 
+function drawRectanlges_img() {
 
-document.getElementById("start").onclick = putUp; //при клике картинки расстасовываются
-
-function putUp() {
-
-  ctx.clearRect(0, 0, cvs.width, cvs.height); //очистила от старой фотки
-  setGrid(); //загрузила сетку
+  ctx.clearRect(0, 0, 1000, 800);//очищаем канву от
+  elements.forEach(function(element) {//много прямоугольников
+    ctx.fillStyle = element.colour;
+    ctx.fillRect(element.left, element.top, element.width, element.height);
+  });
 
   document.getElementById("h1").innerText = "Пора собирать пазл! Нажимайте на картинку для перемещения в свободное место";
-
 
   ctx.drawImage(eval(`part_img${arrNum[0]}`), 0, 0);//рандомное расположение изображений
   ctx.drawImage(eval(`part_img${arrNum[1]}`), 250, 0);
@@ -100,22 +177,9 @@ function putUp() {
   ctx.drawImage(eval(`part_img${arrNum[8]}`), 0, 400);
   ctx.drawImage(eval(`part_img${arrNum[9]}`), 250, 400);
   ctx.drawImage(eval(`part_img${arrNum[10]}`), 500, 400);
-
-  setPic(); //объявление переменных с картинками*/
-}
-
-function setPic() { //массив картинок и их айди, ссортированы слева направо. для конечного результата
-  let pics = []
-  for ( let i = 0; i < 11; i++) {
-    let m = {};
-    pics.push(m);
   }
-  for ( let i = 0; i < 11; i++) {
-    pics[i].pic = eval(`part_img${arrNum[i]}`);
-    pics[i].id = i;
-  }
-  return pics;
-}
+
+cvs.addEventListener('click', click, false);
 
 let emptyRect = { //начальное положение пустого квадрата
   x: 750,
@@ -124,10 +188,21 @@ let emptyRect = { //начальное положение пустого ква�
   height: 200
 }
 
-document.addEventListener("keydown", moveTo);
-
-function moveTo() {
-    ctx.clearRect(emptyRect.x - 250, emptyRect.y, emptyRect.width, emptyRect.height);
-    ctx.drawImage(eval(`part_img${arrNum[10]}`),emptyRect.x, emptyRect.y);
-    empty.x -= 250;
+/*function clickUp(event) {
+    let x = event.pageX - cvsLeft,
+        y = event.pageY - cvsTop;
+    elements.forEach(function(element) {
+        if (y > element.top && y < element.top + element.height && x > element.left && x < element.left + element.width) {
+            alert(`rectangles ${element.id}`);
+            console.log(1);
+        }
+    });
+}*/
+function click(event) {
+  let x = event.pageX - cvsLeft,
+      y = event.pageY - cvsTop;
+      if (y > elements[0].top && y < elements[0].top + elements[0].height && x > elements[0].left && x < elements[0].left + elements[0].width) {
+          alert(`rectangles ${elements[0].id}`);
+          console.log(1);
+      };
 }
