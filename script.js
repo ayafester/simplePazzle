@@ -3,9 +3,14 @@ let cvs = document.getElementById("canvas1"),//настройка канваса
     cvsLeft = cvs.offsetLeft, //начало координаты канваса относительно ДОМ
     cvsTop = cvs.offsetTop,
     elements = [];
+    cvs2 = document.getElementById("canvas"),
+    ctx2 = cvs2.getContext("2d");
+
 
 let img1 = new Image();//главное изображение
-img1.src = "img/1.jpg";
+img1.src = "img/1.png";
+
+
 
 let part_img1 = new Image(), //части изображений
     part_img2 = new Image(),
@@ -53,6 +58,7 @@ let arrNum = generateArrayRandomNumber(1, 11); //фиксирванные чис
 console.log(arrNum)
 
 function draw() { //начальное изображение картинки
+  ctx2.drawImage(img1, 0, 0, 300, 180);
   ctx.drawImage(img1, 0, 0);
 }
 
@@ -543,7 +549,7 @@ function click11(event) {
       }
       if (elements[7].flag == false) {
         ctx.clearRect(elements[11].left, elements[11].top, elements[11].width, elements[11].height);
-        ctx.drawImage(elements[10].img, elements[7].left, elements[7].top);
+        ctx.drawImage(elements[11].img, elements[7].left, elements[7].top);
         elements[7].img = elements[11].img;
         elements[11].flag = false;
         elements[7].flag = true;
