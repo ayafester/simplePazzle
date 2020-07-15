@@ -9,8 +9,8 @@ let cvs = document.getElementById("canvas1"),//настройка канваса
 
 let img1 = new Image();//главное изображение
 img1.src = "img/1.png";
-
-
+let imgDone = new Image();
+imgDone.src = "img/all.png"
 
 let part_img1 = new Image(), //части изображений
     part_img2 = new Image(),
@@ -195,7 +195,7 @@ function drawRectanlges_img() {
     ctx.fillRect(element.left, element.top, element.width, element.height);
   });
 
-  document.getElementById("h1").innerText = "Пора собирать пазл! Нажимайте на картинку для перемещения в свободное место";
+  //document.getElementById("h1").innerText = "Пора собирать пазл! Нажимайте на картинку для перемещения в свободное место";
 
   ctx.drawImage(eval(`part_img${arrNum[0]}`), 0, 0);//рандомное расположение изображений
   ctx.drawImage(eval(`part_img${arrNum[1]}`), 250, 0);
@@ -514,7 +514,7 @@ function click10(event) { //11 квадрат
       //alert(`rectangles ${elements[10].id}`);
       if (elements[11].flag == false) {
         ctx.clearRect(elements[10].left, elements[10].top, elements[10].width, elements[10].height);
-        ctx.drawImage(eval(`part_img${arrNum[10]}`),elements[11].left, elements[11].top);
+        ctx.drawImage(elements[10].img,elements[11].left, elements[11].top);
         elements[11].img = elements[10].img;
         elements[10].flag = false;
         elements[11].flag = true;
@@ -555,4 +555,10 @@ function click11(event) {
         elements[7].flag = true;
       }
   }
+}
+function itDone() {
+  //document.getElementById("h1").innerText = "Ура-ура!";
+  ctx.clearRect(0, 0, 1000, 600);
+
+  ctx.drawImage(imgDone, 0, 0, 1000, 600);
 }
