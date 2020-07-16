@@ -1,17 +1,48 @@
+@font-face {
+    font-family: AdelleCyrillic;
+    src: url(font/AdelleCyrillic-Heavy.ttf); 
+}
+
 #canvas1 {
-  border: 1px solid black;
-  background: #FFFAC8;
-  margin-left: 10px;
+  border: 3px solid white;
+  background: #FEB836;
+  margin-top: 1%;
+  margin-left: 20%;
+  box-shadow: 0 0 2px 2px white;
 }
 
 #canvas {
-  border: 1px solid black;
-  background: #FFFAC8;
-  margin-left: 1px;
+
+  background: #FEB836;
+  margin-top: 1%;
+  margin-right: 20%;
+  float: right;
+
 }
 .q {
-  font-family: 'Courier New';
-  color: #A66F00;
-  font-size: 20px;
-  margin-left: 10px;
+  font-family: 'AdelleCyrillic';
+  color: #FEFFFB;
+  font-size: 50px;
+  margin-left: 20%;
+}
+.fon {
+  color: #FEB836;
+}
+
+.but {
+  font-family: 'AdelleCyrillic';
+  width: 80px;
+  color: #FEFFFB;
+  background: #FD3900;
+  border: 0px solid #FD3900;
+  border-radius: 10px;
+}
+.menu {
+   float: right;
+   margin-right: 20%;
+}
+.inputImg {
+  font-family: 'AdelleCyrillic';
+  color: #FD3900;
+  opacity: 0.5;
 }

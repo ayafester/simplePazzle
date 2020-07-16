@@ -7,10 +7,28 @@ let cvs = document.getElementById("canvas1"),//настройка канваса
     ctx2 = cvs2.getContext("2d");
 
 
-let img1 = new Image();//главное изображение
+let img1 = new Image();
 img1.src = "img/1.png";
+
+img1.onload = draw;
+
+function getHref() {
+  let href = document.getElementById("imgHref").value;
+  console.log("ooooo");
+  //img1 = new Image();//главное изображение
+  img1.src = href;
+
+
+  img1.onload = draw;
+}
+
 let imgDone = new Image();
-imgDone.src = "img/all.png"
+imgDone.src = "img/all.png";
+let imgDone2 = new Image();
+imgDone2.src = "img/all2.jpg";
+//href = document.getElementById("get").onclick = getHref();
+
+ //при прогрузки картинки функция
 
 let part_img1 = new Image(), //части изображений
     part_img2 = new Image(),
@@ -36,7 +54,7 @@ part_img9.src = "img/image_part_009.jpg";
 part_img10.src = "img/image_part_010.jpg";
 part_img11.src = "img/image_part_011.jpg";
 
-function generateArrayRandomNumber (min, max) { //генератор случайных чисел неповторяющихся
+function generateArrayRandomNumber (min, max) { //генератор случайных чисел неповторяющихся( готовый)
   let totalNumbers 		= max - min + 1,
   arrayTotalNumbers 	= [],
   arrayRandomNumbers 	= [],
@@ -58,16 +76,15 @@ let arrNum = generateArrayRandomNumber(1, 11); //фиксирванные чис
 console.log(arrNum)
 
 function draw() { //начальное изображение картинки
-  ctx2.drawImage(img1, 0, 0, 300, 180);
-  ctx.drawImage(img1, 0, 0);
+  ctx2.drawImage(img1, 0, 0, 150, 90);
+  ctx.drawImage(img1, 0, 0, 600, 360);
 }
 
-img1.onload = draw; //при прогрузки картинки функция
 
     elements.push({
-        colour: '#FFFAC8',
-        width: 250,
-        height: 200,
+        colour: '#FEB836',
+        width: 150,
+        height: 120,
         top: 0,
         left: 0,
         id: 0,
@@ -76,111 +93,111 @@ img1.onload = draw; //при прогрузки картинки функция
     });
 
     elements.push({
-        colour: '#FFFAC8',
-        width: 250,
-        height: 200,
+        colour: '#FEB836',
+        width: 150,
+        height: 120,
         top: 0,
-        left: 250,
+        left: 150,
         id: 1,
         flag: true,
         img: eval(`part_img${arrNum[1]}`)
     });
     elements.push({
-        colour: '#FFFAC8',
-        width: 250,
-        height: 200,
+        colour: '#FEB836',
+        width: 150,
+        height: 120,
         top: 0,
-        left: 500,
+        left: 300,
         id: 2,
         flag: true,
         img: eval(`part_img${arrNum[2]}`)
     });
     elements.push({
-        colour: '#FFFAC8',
-        width: 250,
-        height: 200,
+        colour: '#FEB836',
+        width: 150,
+        height: 120,
         top: 0,
-        left: 750,
+        left: 450,
         id: 3,
         flag: true,
         img: eval(`part_img${arrNum[3]}`)
     });
     elements.push({
-        colour: '#FFFAC8',
-        width: 250,
-        height: 200,
-        top: 200,
+        colour: '#FEB836',
+        width: 150,
+        height: 120,
+        top: 120,
         left: 0,
         id: 4,
         flag: true,
         img: eval(`part_img${arrNum[4]}`)
     });
     elements.push({
-        colour: '#FFFAC8',
-        width: 250,
-        height: 200,
-        top: 200,
-        left: 250,
+        colour: '#FEB836',
+        width: 150,
+        height: 120,
+        top: 120,
+        left: 150,
         id: 5,
         flag: true,
         img: eval(`part_img${arrNum[5]}`)
     });
     elements.push({
-        colour: '#FFFAC8',
-        width: 250,
-        height: 200,
-        top: 200,
-        left: 500,
+        colour: '#FEB836',
+        width: 150,
+        height: 120,
+        top: 120,
+        left: 300,
         id: 6,
         flag: true,
         img: eval(`part_img${arrNum[6]}`)
     });
     elements.push({
-        colour: '#FFFAC8',
-        width: 250,
-        height: 200,
-        top: 200,
-        left: 750,
+        colour: '#FEB836',
+        width: 150,
+        height: 120,
+        top: 120,
+        left: 450,
         id: 7,
         flag: true,
         img: eval(`part_img${arrNum[7]}`)
     });
     elements.push({
-        colour: '#FFFAC8',
-        width: 250,
-        height: 200,
-        top: 400,
+        colour: '#FEB836',
+        width: 150,
+        height: 120,
+        top: 240,
         left: 0,
         id: 8,
         flag: true,
         img: eval(`part_img${arrNum[8]}`)
     });
     elements.push({
-        colour: '#FFFAC8',
-        width: 250,
-        height: 200,
-        top: 400,
-        left: 250,
+        colour: '#FEB836',
+        width: 150,
+        height: 120,
+        top: 240,
+        left: 150,
         id: 9,
         flag: true,
         img: eval(`part_img${arrNum[9]}`)
     });
     elements.push({
-        colour: '#FFFAC8',
-        width: 250,
-        height: 200,
-        top: 400,
-        left: 500,
+        colour: '#FEB836',
+        width: 150,
+        height: 120,
+        top: 240,
+        left: 300,
         id: 10,
         flag: true,
         img: eval(`part_img${arrNum[10]}`)
     });
     elements.push({
-        colour: '#FFFAC8',
-        width: 250,
-        height: 200,
-        top: 400,
-        left: 750,
+        colour: '#FEB836',
+        width: 150,
+        height: 120,
+        top: 240,
+        left: 450,
         id: 11,
         flag: false,
         img: 1
@@ -189,37 +206,24 @@ img1.onload = draw; //при прогрузки картинки функция
 
 function drawRectanlges_img() {
 
-  ctx.clearRect(0, 0, 1000, 800);//очищаем канву от
+  ctx.clearRect(0, 0, 600, 360);//очищаем канву от
   elements.forEach(function(element) {//много прямоугольников
     ctx.fillStyle = element.colour;
     ctx.fillRect(element.left, element.top, element.width, element.height);
   });
 
-  //document.getElementById("h1").innerText = "Пора собирать пазл! Нажимайте на картинку для перемещения в свободное место";
-
-  ctx.drawImage(eval(`part_img${arrNum[0]}`), 0, 0);//рандомное расположение изображений
-  ctx.drawImage(eval(`part_img${arrNum[1]}`), 250, 0);
-  ctx.drawImage(eval(`part_img${arrNum[2]}`), 500, 0);
-  ctx.drawImage(eval(`part_img${arrNum[3]}`), 750, 0);
-  ctx.drawImage(eval(`part_img${arrNum[4]}`), 0, 200);
-  ctx.drawImage(eval(`part_img${arrNum[5]}`), 250, 200);
-  ctx.drawImage(eval(`part_img${arrNum[6]}`), 500, 200);
-  ctx.drawImage(eval(`part_img${arrNum[7]}`), 750, 200);
-  ctx.drawImage(eval(`part_img${arrNum[8]}`), 0, 400);
-  ctx.drawImage(eval(`part_img${arrNum[9]}`), 250, 400);
-  ctx.drawImage(eval(`part_img${arrNum[10]}`), 500, 400);
+  ctx.drawImage(eval(`part_img${arrNum[0]}`), 0, 0,150,120);//рандомное расположение изображений
+  ctx.drawImage(eval(`part_img${arrNum[1]}`), 150, 0, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[2]}`), 300, 0, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[3]}`), 450, 0, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[4]}`), 0, 120, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[5]}`), 150, 120, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[6]}`), 300, 120, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[7]}`), 450, 120, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[8]}`), 0, 240, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[9]}`), 150, 240, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[10]}`), 300, 240, 150,120);
   }
-
-/*function clickUp(event) {
-    let x = event.pageX - cvsLeft,
-        y = event.pageY - cvsTop;
-    elements.forEach(function(element) {
-        if (y > element.top && y < element.top + element.height && x > element.left && x < element.left + element.width) {
-            alert(`rectangles ${element.id}`);
-            console.log(1);
-        }
-    });
-}*/
 
 cvs.addEventListener('click', click0, false);
 cvs.addEventListener('click', click1, false);
@@ -558,7 +562,8 @@ function click11(event) {
 }
 function itDone() {
   //document.getElementById("h1").innerText = "Ура-ура!";
-  ctx.clearRect(0, 0, 1000, 600);
+  ctx.clearRect(0, 0, 600, 360);
+  ctx.drawImage(imgDone, 0, 0, 600, 360);
+  ctx2.clearRect(0,0,150,90);
 
-  ctx.drawImage(imgDone, 0, 0, 1000, 600);
 }
