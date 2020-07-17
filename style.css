@@ -1,6 +1,6 @@
 @font-face {
     font-family: AdelleCyrillic;
-    src: url(font/AdelleCyrillic-Heavy.ttf); 
+    src: url(font/AdelleCyrillic-Heavy.ttf);
 }
 
 #canvas1 {
@@ -45,4 +45,11 @@
   font-family: 'AdelleCyrillic';
   color: #FD3900;
   opacity: 0.5;
+}
+.text {
+  font-family: 'AdelleCyrillic';
+  color: #FD3900;
+  font-size: 15px;
+  margin-left: 20%;
+  padding: 0px;
 }
