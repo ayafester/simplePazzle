@@ -23,16 +23,40 @@ let part_img = [ new Image(),new Image(),new Image(),
 
 
 part_img[0].src = "img/image_part_001.jpg"; //путь к изо
+part_img[0].id = 0;
+
+console.log(part_img[0].id)
 part_img[1].src = "img/image_part_002.jpg";
+part_img[1].id = 1;
+
 part_img[2].src = "img/image_part_003.jpg";
+part_img[2].id = 2;
+
 part_img[3].src = "img/image_part_004.jpg";
+part_img[3].id = 3;
+
 part_img[4].src = "img/image_part_005.jpg";
+part_img[4].id = 4;
+
 part_img[5].src = "img/image_part_006.jpg";
+part_img[5].id = 5;
+
 part_img[6].src = "img/image_part_007.jpg";
+part_img[6].id = 6;
+
 part_img[7].src = "img/image_part_008.jpg";
+part_img[7].id = 7;
+
 part_img[8].src = "img/image_part_009.jpg";
+part_img[8].id = 8;
+
 part_img[9].src = "img/image_part_010.jpg";
+part_img[9].id = 9;
+
 part_img[10].src = "img/image_part_011.jpg";
+part_img[10].id = 10;
+
+console.log(part_img[10].id)
 //part_img[11].src = "img/image_part_012.jpg";
 
 function getHref() { //почему при одном клике только?
@@ -45,14 +69,13 @@ function getHref() { //почему при одном клике только?
   minWid = img1.width;
   minHei = img1.height;
 
-  console.log(minWid + ' ' + minHei  + " 1");
+  //console.log(minWid + ' ' + minHei  + " 1");
 
 }
 
 let imgDone = new Image();
 imgDone.src = "img/all.png";
-let imgDone2 = new Image();
-imgDone2.src = "img/all2.jpg";
+
 
 
 function generateArrayRandomNumber (min, max) { //генератор случайных чисел неповторяющихся( готовый)
@@ -107,9 +130,9 @@ function drawRectanlges_img() {
     ]).then(function(part_imgg) {
 
       for(let i=0; i<12; i++) {
-        console.log(elements[i].img);
+        //console.log(elements[i].img);
         elements[i].img = part_imgg[arrNum[i]];
-        console.log(elements[i].img);
+        //console.log(elements[i].img);
       }
       part_img = part_imgg;
 
@@ -213,7 +236,7 @@ function drawRectanlges_img() {
         left: 300,
         id: 6,
         flag: true,
-      img: part_img[arrNum[6]]
+        img: part_img[arrNum[6]]
     });
     elements.push({
         colour: '#FEB836',
@@ -263,7 +286,7 @@ function drawRectanlges_img() {
         left: 450,
         id: 11,
         flag: false,
-        img: 1
+        img: 11
     });
 
 function drawRec() {
@@ -610,9 +633,15 @@ function click11(event) {
         elements[7].flag = true;
       }
   }
+  /*console.log(elements[0].id + ' str ' + part_img[0].id);
+  if( elements[0].id===part_img[0].id && elements[1].id===part_img[1].id && elements[2].id===part_img[2].id && elements[3].id===part_img[3].id && elements[4].id===part_img[4].id && elements[5].id===part_img[5].id && elements[6].id===part_img[6].id && elements[7].id===part_img[7].id && elements[8].id===part_img[8].id && elements[9].id===part_img[9].id && elements[10].id===part_img[10].id) {
+    alert("You win!");
+    itDone();
+  }*/
+
 }
 function itDone() {
-  //document.getElementById("h1").innerText = "Ура-ура!";
+
   ctx.clearRect(0, 0, 600, 360);
   ctx.drawImage(imgDone, 0, 0, 600, 360);
   ctx2.clearRect(0,0,150,90);
