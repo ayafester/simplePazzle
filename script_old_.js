@@ -12,12 +12,13 @@ img1.src = "img/1.png";
 
 img1.onload = draw;
 
-
 function getHref() {
   let href = document.getElementById("imgHref").value;
   console.log("ooooo");
   //img1 = new Image();//главное изображение
   img1.src = href;
+
+
   img1.onload = draw;
 }
 
@@ -27,8 +28,31 @@ let imgDone2 = new Image();
 imgDone2.src = "img/all2.jpg";
 //href = document.getElementById("get").onclick = getHref();
 
- //при прогрузки картинки функци
+ //при прогрузки картинки функция
 
+let part_img1 = new Image(), //части изображений
+    part_img2 = new Image(),
+    part_img3 = new Image(),
+    part_img4 = new Image(),
+    part_img5 = new Image(),
+    part_img6 = new Image(),
+    part_img7 = new Image(),
+    part_img8 = new Image(),
+    part_img9 = new Image(),
+    part_img10 = new Image(),
+    part_img11 = new Image();
+
+part_img1.src = "img/image_part_001.jpg"; //путь к изо
+part_img2.src = "img/image_part_002.jpg";
+part_img3.src = "img/image_part_003.jpg";
+part_img4.src = "img/image_part_004.jpg";
+part_img5.src = "img/image_part_005.jpg";
+part_img6.src = "img/image_part_006.jpg";
+part_img7.src = "img/image_part_007.jpg";
+part_img8.src = "img/image_part_008.jpg";
+part_img9.src = "img/image_part_009.jpg";
+part_img10.src = "img/image_part_010.jpg";
+part_img11.src = "img/image_part_011.jpg";
 
 function generateArrayRandomNumber (min, max) { //генератор случайных чисел неповторяющихся( готовый)
   let totalNumbers 		= max - min + 1,
@@ -49,6 +73,7 @@ function generateArrayRandomNumber (min, max) { //генератор случа�
 }
 
 let arrNum = generateArrayRandomNumber(1, 11); //фиксирванные числа от 1 до 11
+console.log(arrNum)
 
 function draw() { //начальное изображение картинки
   ctx2.drawImage(img1, 0, 0, 150, 90);
@@ -64,7 +89,7 @@ function draw() { //начальное изображение картинки
         left: 0,
         id: 0,
         flag: true,
-        img: img1
+        img: eval(`part_img${arrNum[0]}`)
     });
 
     elements.push({
@@ -75,7 +100,7 @@ function draw() { //начальное изображение картинки
         left: 150,
         id: 1,
         flag: true,
-        //img: eval(`part_img${arrNum[1]}`)
+        img: eval(`part_img${arrNum[1]}`)
     });
     elements.push({
         colour: '#FEB836',
@@ -85,7 +110,7 @@ function draw() { //начальное изображение картинки
         left: 300,
         id: 2,
         flag: true,
-        //img: eval(`part_img${arrNum[2]}`)
+        img: eval(`part_img${arrNum[2]}`)
     });
     elements.push({
         colour: '#FEB836',
@@ -95,7 +120,7 @@ function draw() { //начальное изображение картинки
         left: 450,
         id: 3,
         flag: true,
-        //img: eval(`part_img${arrNum[3]}`)
+        img: eval(`part_img${arrNum[3]}`)
     });
     elements.push({
         colour: '#FEB836',
@@ -105,7 +130,7 @@ function draw() { //начальное изображение картинки
         left: 0,
         id: 4,
         flag: true,
-        //img: eval(`part_img${arrNum[4]}`)
+        img: eval(`part_img${arrNum[4]}`)
     });
     elements.push({
         colour: '#FEB836',
@@ -115,7 +140,7 @@ function draw() { //начальное изображение картинки
         left: 150,
         id: 5,
         flag: true,
-        //img: eval(`part_img${arrNum[5]}`)
+        img: eval(`part_img${arrNum[5]}`)
     });
     elements.push({
         colour: '#FEB836',
@@ -125,7 +150,7 @@ function draw() { //начальное изображение картинки
         left: 300,
         id: 6,
         flag: true,
-        //img: eval(`part_img${arrNum[6]}`)
+        img: eval(`part_img${arrNum[6]}`)
     });
     elements.push({
         colour: '#FEB836',
@@ -135,7 +160,7 @@ function draw() { //начальное изображение картинки
         left: 450,
         id: 7,
         flag: true,
-        //img: eval(`part_img${arrNum[7]}`)
+        img: eval(`part_img${arrNum[7]}`)
     });
     elements.push({
         colour: '#FEB836',
@@ -145,7 +170,7 @@ function draw() { //начальное изображение картинки
         left: 0,
         id: 8,
         flag: true,
-        //img: eval(`part_img${arrNum[8]}`)
+        img: eval(`part_img${arrNum[8]}`)
     });
     elements.push({
         colour: '#FEB836',
@@ -155,7 +180,7 @@ function draw() { //начальное изображение картинки
         left: 150,
         id: 9,
         flag: true,
-        //img: eval(`part_img${arrNum[9]}`)
+        img: eval(`part_img${arrNum[9]}`)
     });
     elements.push({
         colour: '#FEB836',
@@ -165,7 +190,7 @@ function draw() { //начальное изображение картинки
         left: 300,
         id: 10,
         flag: true,
-        //img: eval(`part_img${arrNum[10]}`)
+        img: eval(`part_img${arrNum[10]}`)
     });
     elements.push({
         colour: '#FEB836',
@@ -175,7 +200,7 @@ function draw() { //начальное изображение картинки
         left: 450,
         id: 11,
         flag: false,
-        //img: 1
+        img: 1
     });
 
 
@@ -187,20 +212,20 @@ function drawRectanlges_img() {
     ctx.fillRect(element.left, element.top, element.width, element.height);
   });
 
-  ctx.drawImage(img1, 0, 0, 150, 120, 0, 0, 150, 200);//рандомное расположение изображений
-  ctx.drawImage(img1, 150, 0, 150, 120, 150, 0, 150, 120);
-  ctx.drawImage(img1, 300, 0, 150, 120, 300, 0, 150, 120);
-  ctx.drawImage(img1, 450, 0, 150, 120, 450, 0, 150, 120);
-  ctx.drawImage(img1, 0, 120, 150, 120, 0, 120, 150, 120);
-  ctx.drawImage(img1, 150, 120, 150, 120, 150, 120, 150, 120);
-  ctx.drawImage(img1, 300, 120, 150, 120,300, 120, 150, 120);
-  ctx.drawImage(img1, 450, 120, 150, 120,450, 120, 150, 120);
-  ctx.drawImage(img1, 0, 240, 150, 120,0, 240, 150, 120);
-  ctx.drawImage(img1, 150, 240, 150, 120,150, 240, 150, 120);
-  ctx.drawImage(img1, 300, 240, 150, 120,300, 240, 150, 120);
+  ctx.drawImage(eval(`part_img${arrNum[0]}`), 0, 0,150,120);//рандомное расположение изображений
+  ctx.drawImage(eval(`part_img${arrNum[1]}`), 150, 0, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[2]}`), 300, 0, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[3]}`), 450, 0, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[4]}`), 0, 120, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[5]}`), 150, 120, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[6]}`), 300, 120, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[7]}`), 450, 120, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[8]}`), 0, 240, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[9]}`), 150, 240, 150,120);
+  ctx.drawImage(eval(`part_img${arrNum[10]}`), 300, 240, 150,120);
   }
 
-/*cvs.addEventListener('click', click0, false);
+cvs.addEventListener('click', click0, false);
 cvs.addEventListener('click', click1, false);
 cvs.addEventListener('click', click2, false);
 cvs.addEventListener('click', click3, false);
@@ -542,4 +567,3 @@ function itDone() {
   ctx2.clearRect(0,0,150,90);
 
 }
-*/
