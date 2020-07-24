@@ -15,7 +15,7 @@ let cvs = document.getElementById("canvas1"),
                       new Image(),new Image(),new Image(),
                       new Image(),new Image()
                       ];
-
+//при загрузке второй клик не нажимается сделать обновление страницы или кода при загрузке фото и автоматом выйгриш
 
 
 imgDone.src = "img/all.png";
@@ -137,6 +137,7 @@ function drawRectanlges_img() {
     });
 
   } else {
+
     ctx.drawImage(part_img[arrNum[0]], 0, 0, 150, 120);
     ctx.drawImage(part_img[arrNum[1]], 150, 0, 150, 120);
     ctx.drawImage(part_img[arrNum[2]], 300, 0, 150, 120);
@@ -273,10 +274,11 @@ function drawRec() {
 cvs.addEventListener('click', click, false);
 
 function click(event) {
+
   let x = event.pageX - cvsLeft,
       y = event.pageY - cvsTop;
   if (y > elements[0].top && y < elements[0].top + elements[0].height && x > elements[0].left && x < elements[0].left + elements[0].width) {
-      //alert(`rectangles ${elements[00].id}`);
+
       if (elements[1].flag == false) {
         ctx.clearRect(elements[0].left, elements[0].top, elements[0].width, elements[0].height);
         ctx.drawImage(elements[0].img, elements[1].left, elements[1].top, elements[1].width, elements[1].height);
@@ -293,7 +295,7 @@ function click(event) {
       }
   }
   else if (y > elements[1].top && y < elements[1].top + elements[1].height && x > elements[1].left && x < elements[1].left + elements[1].width) {
-      //alert(`rectangles ${elements[10].id}`);
+
       if (elements[2].flag == false) {
         ctx.clearRect(elements[1].left, elements[1].top, elements[1].width, elements[1].height);
         ctx.drawImage(elements[1].img, elements[2].left, elements[2].top, elements[2].width, elements[2].height);
@@ -317,7 +319,7 @@ function click(event) {
       }
   }
   else if (y > elements[2].top && y < elements[2].top + elements[2].height && x > elements[2].left && x < elements[2].left + elements[2].width) {
-      //alert(`rectangles ${elements[10].id}`);
+
       if (elements[1].flag == false) {
         ctx.clearRect(elements[2].left, elements[2].top, elements[2].width, elements[2].height);
         ctx.drawImage(elements[2].img, elements[1].left, elements[1].top, elements[2].width, elements[2].height);
@@ -341,7 +343,7 @@ function click(event) {
       }
   }
   else if (y > elements[3].top && y < elements[3].top + elements[3].height && x > elements[3].left && x < elements[3].left + elements[3].width) {
-      //alert(`rectangles ${elements[10].id}`);
+
       if (elements[2].flag == false) {
         ctx.clearRect(elements[3].left, elements[3].top, elements[3].width, elements[3].height);
         ctx.drawImage(elements[3].img, elements[2].left, elements[2].top, elements[2].width, elements[2].height);
@@ -358,7 +360,7 @@ function click(event) {
       }
   }
   else if (y > elements[4].top && y < elements[4].top + elements[4].height && x > elements[4].left && x < elements[4].left + elements[4].width) {
-      //alert(`rectangles ${elements[10].id}`);
+
       if (elements[0].flag == false) {
         ctx.clearRect(elements[4].left, elements[4].top, elements[4].width, elements[4].height);
         ctx.drawImage(elements[4].img, elements[0].left, elements[0].top, elements[0].width, elements[0].height);
@@ -382,7 +384,7 @@ function click(event) {
       }
   }
   else if (y > elements[5].top && y < elements[5].top + elements[5].height && x > elements[5].left && x < elements[5].left + elements[5].width) {
-      //alert(`rectangles ${elements[10].id}`);
+
       if (elements[1].flag == false) {
         ctx.clearRect(elements[5].left, elements[5].top, elements[5].width, elements[5].height);
         ctx.drawImage(elements[5].img, elements[1].left, elements[1].top, elements[1].width, elements[1].height);
@@ -413,7 +415,7 @@ function click(event) {
       }
   }
   else if (y > elements[6].top && y < elements[6].top + elements[6].height && x > elements[6].left && x < elements[6].left + elements[6].width) {
-      //alert(`rectangles ${elements[10].id}`);
+
       if (elements[2].flag == false) {
         ctx.clearRect(elements[6].left, elements[6].top, elements[6].width, elements[6].height);
         ctx.drawImage(elements[6].img, elements[2].left, elements[2].top, elements[2].width, elements[2].height);
@@ -444,7 +446,7 @@ function click(event) {
       }
   }
   else if (y > elements[7].top && y < elements[7].top + elements[7].height && x > elements[7].left && x < elements[7].left + elements[7].width) {
-      //alert(`rectangles ${elements[10].id}`);
+
       if (elements[3].flag == false) {
         ctx.clearRect(elements[7].left, elements[7].top, elements[7].width, elements[7].height);
         ctx.drawImage(elements[7].img, elements[3].left, elements[3].top, elements[3].width, elements[3].height);
@@ -468,7 +470,7 @@ function click(event) {
       }
   }
   else if (y > elements[8].top && y < elements[8].top + elements[8].height && x > elements[8].left && x < elements[8].left + elements[8].width) {
-      //alert(`rectangles ${elements[10].id}`);
+
       if (elements[4].flag == false) {
         ctx.clearRect(elements[8].left, elements[8].top, elements[8].width, elements[8].height);
         ctx.drawImage(elements[8].img, elements[4].left, elements[4].top, elements[4].width, elements[4].height);
@@ -485,7 +487,7 @@ function click(event) {
       }
   }
   else if (y > elements[9].top && y < elements[9].top + elements[9].height && x > elements[9].left && x < elements[9].left + elements[9].width) {
-      //alert(`rectangles ${elements[10].id}`);
+
       if (elements[10].flag == false) {
         ctx.clearRect(elements[9].left, elements[9].top, elements[9].width, elements[9].height);
         ctx.drawImage(elements[9].img, elements[10].left, elements[10].top, elements[10].width, elements[10].height);
@@ -509,13 +511,14 @@ function click(event) {
       }
   }
   else if (y > elements[10].top && y < elements[10].top + elements[10].height && x > elements[10].left && x < elements[10].left + elements[10].width) {
-      //alert(`rectangles ${elements[10].id}`);
+
       if (elements[11].flag == false) {
         ctx.clearRect(elements[10].left, elements[10].top, elements[10].width, elements[10].height);
         ctx.drawImage(elements[10].img,elements[11].left, elements[11].top, elements[11].width, elements[11].height);
         elements[11].img = elements[10].img;
         elements[10].flag = false;
         elements[11].flag = true;
+
       }
       if (elements[9].flag == false) {
         ctx.clearRect(elements[10].left, elements[10].top, elements[10].width, elements[10].height);
@@ -533,13 +536,23 @@ function click(event) {
       }
   }
   else if (y > elements[11].top && y < elements[11].top + elements[11].height && x > elements[11].left && x < elements[11].left + elements[11].width) {
-      //alert(`rectangles ${elements[11].id}`);
+
       if (elements[10].flag == false) {
         ctx.clearRect(elements[11].left, elements[11].top, elements[11].width, elements[11].height);
         ctx.drawImage(elements[11].img,elements[10].left, elements[10].top, elements[10].width, elements[10].height);
         elements[10].img = elements[11].img;
         elements[11].flag = false;
         elements[10].flag = true;
+
+        if(elements[0].id == elements[0].img.id && elements[1].id == elements[1].img.id &&
+          elements[2].id == elements[2].img.id && elements[3].id == elements[3].img.id &&
+          elements[4].id == elements[4].img.id && elements[5].id == elements[5].img.id &&
+          elements[6].id == elements[6].img.id && elements[7].id == elements[7].img.id &&
+          elements[8].id == elements[8].img.id && elements[9].id == elements[9].img.id &&
+          elements[10].id == elements[10].img.id ) {
+
+          itDone();
+        }
       }
       if (elements[7].flag == false) {
         ctx.clearRect(elements[11].left, elements[11].top, elements[11].width, elements[11].height);
@@ -547,6 +560,17 @@ function click(event) {
         elements[7].img = elements[11].img;
         elements[11].flag = false;
         elements[7].flag = true;
+
+        if(elements[0].id == elements[0].img.id && elements[1].id == elements[1].img.id &&
+          elements[2].id == elements[2].img.id && elements[3].id == elements[3].img.id &&
+          elements[4].id == elements[4].img.id && elements[5].id == elements[5].img.id &&
+          elements[6].id == elements[6].img.id && elements[7].id == elements[7].img.id &&
+          elements[8].id == elements[8].img.id && elements[9].id == elements[9].img.id &&
+          elements[10].id == elements[10].img.id ) {
+
+          itDone();
+        }
+
       }
     }
 }
